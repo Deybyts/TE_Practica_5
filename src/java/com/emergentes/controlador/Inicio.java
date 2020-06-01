@@ -19,11 +19,10 @@ public class Inicio extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
         try {
             ConexionBD canal = new ConexionBD();
-            //Obtenemos el valor de la coneccion
             Connection conn = canal.conectar();
             ProductoDAO dao = new ProductoDAOimpl();
             int id;
-            Producto avi = new Producto();
+            Producto pd = new Producto();
             String action;
             action = action = (request.getParameter("action") != null) ? request.getParameter("action") : "list";
             switch(action){
@@ -32,13 +31,13 @@ public class Inicio extends HttpServlet {
                     request.setAttribute("lista", lista);
                     request.getRequestDispatcher("ini.jsp").forward(request, response);
                 case "add":
-                    request.setAttribute("aviso", avi);
+                    request.setAttribute("product", pd);
                     request.getRequestDispatcher("formproducto.jsp").forward(request, response);
                     break;
                 case "edit":
                     id = Integer.parseInt(request.getParameter("id"));
-                    avi = dao.getById(id);
-                    request.setAttribute("aviso", avi);
+                    pd = dao.getById(id);
+                    request.setAttribute("product", pd);
                     request.getRequestDispatcher("formproducto.jsp").forward(request, response);
                     break;
                 case "delete":
@@ -60,20 +59,20 @@ public class Inicio extends HttpServlet {
        int id = Integer.parseInt(request.getParameter("id"));
        String descripcion = request.getParameter("descripcion");
        int stock = Integer.parseInt(request.getParameter("stock"));
-       Producto avi = new Producto();
-       avi.setId(id);
-       avi.setDescripcion(descripcion);
-       avi.setStock(stock);
+       Producto pd = new Producto();
+       pd.setId(id);
+       pd.setDescripcion(descripcion);
+       pd.setStock(stock);
        if(id==0){
            try {
-               dao.insert(avi);
+               dao.insert(pd);
                response.sendRedirect("Inicio");
            } catch (Exception e) {
                System.out.println("Error :"+e.getMessage());
            }
        }else{
            try {
-               dao.update(avi);
+               dao.update(pd);
                response.sendRedirect("Inicio");
            } catch (Exception e) {
                System.out.println("Error :"+e.getMessage());

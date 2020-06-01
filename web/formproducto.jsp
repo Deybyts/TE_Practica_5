@@ -10,21 +10,21 @@
     <center>
         <h1>
             <font color="red">
-            <c:if test="${prodc.id == 0}">Nuevo</c:if>
-            <c:if test="${prodc.id != 0}">Editar</c:if>
+            <c:if test="${product.id == 0}">Nuevo</c:if>
+            <c:if test="${product.id != 0}">Editar</c:if>
             registro
             </font>
         </h1>
         <form action="Inicio" method="post">
-            <input type="hidden" name="id" value="${aviso.id}" />
+            <input type="hidden" name="id" value="${product.id}" />
             <table>
                 <tr>
                     <td><font color="blue">Descripcion</font></td>
-                    <td><input type="text" name="descripcion" value="${aviso.descripcion}"></td>
+                    <td><input type="text" name="descripcion" value="${product.descripcion}"></td>
                 </tr>
                 <tr>
                     <td><font color="blue">Stock</font></td>
-                    <td><input type="text" name="stock" value="${aviso.stock}" ></td>
+                    <td><input type="text" name="stock" value="${product.stock}" ></td>
                 </tr>
                 <tr>
                     <td></td>

@@ -6,7 +6,7 @@
 ## Ventana Nuevo Registro
 <img src="Imagenes/nuevo-registro.PNG" width="500"> 
 
-## Ventana de Registro
+## Ventana Editar Registro
 <img src="Imagenes/editar-registro.PNG" width="500">
 
 [Ir a la Base de datos](Base%20de%20Datos/bd_almacen.sql)

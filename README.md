@@ -1,6 +1,6 @@
 # Patrón de diseño DAO
 
-## Ventana Login
+## Ventana Principal
 <img src="Imagenes/inicio-registro.PNG" width="500">
 
 ## Ventana Nuevo Registro
